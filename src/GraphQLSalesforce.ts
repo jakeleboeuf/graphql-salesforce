@@ -9,9 +9,11 @@ import { Connection } from 'jsforce';
 export default class GraphQLSalesforce {
   private static connection = new Connection();
 
-  static async makeSchema(username: string, password: string): Promise<GraphQLSchema> {
+  static async makeSchema(username: string, password: string, loginUrl: string): Promise<GraphQLSchema> {
+    // Setup login url
+    // This can default to `https://test.salesforce.com'
+    GraphQLSalesforce.connection.loginUrl = loginUrl || 'https://test.salesforce.com';
     const sObjectDescribePromises: Promise<any>[] = [];
-
     await GraphQLSalesforce.connection.login(username, password);
     for (const sObject of (await GraphQLSalesforce.connection.describeGlobal()).sobjects)
       sObjectDescribePromises.push(GraphQLSalesforce.connection.sobject(sObject.name).describe());
