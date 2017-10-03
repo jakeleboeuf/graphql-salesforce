@@ -1,11 +1,8 @@
 {
   "name": "graphql-salesforce",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "GraphQL for Salesforce",
-  "keywords": [
-    "graphql",
-    "salesforce"
-  ],
+  "keywords": ["graphql", "salesforce"],
   "homepage": "https://github.com/mjgallag/graphql-salesforce#readme",
   "bugs": "https://github.com/mjgallag/graphql-salesforce/issues",
   "license": "MIT",
